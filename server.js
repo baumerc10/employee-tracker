@@ -10,7 +10,7 @@ const connection = mysql.createConnection({
   database: 'employee_db'
 });
 
-connection.connect(err => {
+connection.connect((err) => {
   if (err) throw err;
   console.log('connected as id ' + connection.threadId);
   afterConnection();
@@ -18,9 +18,7 @@ connection.connect(err => {
 
 afterConnection = () => {
   console.log("***********************************")
-  console.log("*                                 *")
   console.log("*        EMPLOYEE MANAGER         *")
-  console.log("*                                 *")
   console.log("***********************************")
   promptUser();
 };
@@ -34,17 +32,17 @@ const promptUser = () => {
       choices: ['View all departments', 
                 'View all roles', 
                 'View all employees', 
-                'Add a department', 
-                'Add a role', 
-                'Add an employee', 
-                'Update an employee role',
-                'Update an employee manager',
+                'Add department', 
+                'Add role', 
+                'Add employee', 
+                'Update employee role',
+                'Update employee manager',
                 "View employees by department",
-                'Delete a department',
-                'Delete a role',
-                'Delete an employee',
+                'Delete department',
+                'Delete role',
+                'Delete employee',
                 'View department budgets',
-                'No Action']
+                'Nothing']
     }
   ])
     .then((answers) => {
